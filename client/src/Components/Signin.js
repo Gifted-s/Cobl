@@ -1,6 +1,6 @@
 import React, { useState  } from 'react';
 import {  Row ,Container} from 'reactstrap';
-
+import {Link} from 'react-router-dom';
 
 const Signin = props => {
     const [email, setEmail]= useState('');
@@ -29,9 +29,8 @@ const Signin = props => {
             var loggedin=false;
            ( async function setUser(){
               await  localStorage.setItem('user' , JSON.stringify(resJSON));
-              loggedin= true
+              loggedin= true;
             })().then(()=>{
-              console.log("set done");
               if(loggedin){
                 return props.history.push('/dashboard')
               }
@@ -75,7 +74,7 @@ const Signin = props => {
                     <div className="navbar-brand" >
                   COBL
                 </div>
-                <h6 style={{padding:"10px"}} className="alert alert-primary">
+                <h6 style={{padding:"10px", fontWeight:'normal'}} className="alert alert-primary">
                   
                   Please fill the form below to login
                 </h6>
@@ -103,6 +102,11 @@ const Signin = props => {
                      
                       <div className="form-group">
                           <input type="submit" value="Next" className="form-control signup btn btn-primary"/>
+                      </div>
+                      
+                      <div>
+                        
+                       Dont have an account? <Link to='/signup'>Sign up</Link>
                       </div>
                     </form>
                  </div>

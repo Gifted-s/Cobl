@@ -1,14 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Container , Row, Col } from 'reactstrap'
 import Features from './Features';
 import HomeFooter from './HomeFooter';
+import {withRouter} from 'react-router-dom';
+import { DropdownContextProvider } from './DropdownContext';
 
 
-const HomeBody = () => {
+const HomeBody = (props) => {
+    const {setObj}=  useContext(DropdownContextProvider)
     return (
         <div className="homeBody">
 
              <Row>
+                
                 <Col sm={0} md={4}>
                 <span className="line"><span className=" dot dot-right"></span></span>
                 </Col>
@@ -21,7 +25,11 @@ const HomeBody = () => {
             </Row>
             <div className="features">
                 <Row>
-                <Col sm={12} md={4}>
+                <Col 
+                 onClick={()=>{
+                    setObj(0);
+                     props.history.push('/service')
+                }} sm={12} md={4}>
                 <Features svg={    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 25 16">
                                                 <g fill="deeppink" stroke="none" fillRule="nonzero">
                                                     <path d="M20.621 4.684a69.87 69.87 0 0 1-.356-1.24c-.135-.487-.373-1.06-.373-1.572-.66.31-1.302.647-2.028.757-.429.065-.826.037-1.256.029-.41-.008-.816.02-1.227.007-.61-.021-1.227-.043-1.832-.133a2.278 2.278 0 0 0-1.151.133c-.281.11-.45.311-.693.466-.203.128-.409.252-.617.372-.26.15-.66.267-.862.481-.284.299-.538.586-.69.973-.14.358-.25.732-.483 1.044-.178.235-.427.418-.556.69-.14.297.081.494.354.587.34.117.738.074 1.05-.102.637-.36.897-1.114 1.453-1.565.551-.449 1.509-.763 2.175-.406.347.185.624.476.969.669.375.21.77.377 1.141.595.78.457 1.475 1.031 2.296 1.42.795.375 1.651.704 2.29 1.333.272-.204.542-.412.797-.637.18-.158.323-.348.504-.502.138-.118.287-.222.45-.303-.738-.825-1.1-2.052-1.355-3.096z">
@@ -34,8 +42,11 @@ const HomeBody = () => {
                                             </svg>} title="Promote your business to the public "  color="deeppink"/>
                 
                 </Col>
-                <Col sm={12} md={4}>
-                <Features svg={
+                <Col onClick={()=>{
+                    setObj(4);
+                     props.history.push('/service')
+                }} sm={12} md={4}>
+                <Features  svg={
                     <svg width="100" height="100" viewBox="0 0 21 21" fill="springgreen" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="" clipRule="evenodd" d="M10.5 20C15.7467 20 20 15.7467 20 10.5C20 5.25329 15.7467 1 10.5 1C5.25329 1 1 5.25329 1 10.5C1 15.7467 5.25329 20 10.5 20Z" fill="white" stroke="springgreen" strokeWidth="1.8"></path>
                     <path fillRule="" clipRule="evenodd" d="M16.3684 8.39101V8.39121C16.4245 8.55321 16.4547 8.72489 16.4545 8.90024V14.1744C16.4545 14.9045 15.8625 15.4966 15.1324 15.4966H5.86723C5.13717 15.4966 4.5451 14.9045 4.5451 14.1744V8.89598C4.5451 8.72256 4.57472 8.55243 4.62988 8.39179L4.62969 8.3916L4.63046 8.39043C4.7162 8.1425 4.86369 7.91721 5.06381 7.73876L5.46949 7.37682L6.2582 6.74295V7.92921L6.04917 8.09721C5.99923 8.13708 5.9524 8.18024 5.90846 8.22592L6.05827 8.34476L10.5356 11.8954L14.951 8.34514L15.0908 8.23269C15.0443 8.18489 14.9952 8.13979 14.9425 8.09798L14.9418 8.0974L14.742 7.93889V6.75863L15.4972 7.35747C15.5191 7.37469 15.5402 7.3925 15.5611 7.41089L15.9314 7.73856C16.1328 7.91643 16.2817 8.14172 16.3682 8.39043L16.3684 8.39101ZM5.47007 9.30572V14.0122L8.23278 11.2493L5.48827 9.07269C5.47665 9.14934 5.47007 9.22695 5.47007 9.30572ZM6.21794 14.572L8.96188 11.8277L10.2499 12.849C10.3343 12.916 10.4356 12.9493 10.5374 12.9493C10.6398 12.9493 10.7425 12.9154 10.8267 12.8473L12.0699 11.8476L14.7943 14.572H6.21794ZM12.7949 11.2648L15.5299 14V9.31308C15.5299 9.23431 15.5234 9.1565 15.5118 9.07985L12.7949 11.2648Z" fill="#919EAB"></path>
@@ -47,7 +58,11 @@ const HomeBody = () => {
                 }
                 title=" Give you a free E-purchase platform"  color="springgreen"/>
                 </Col>
-                <Col sm={12} md={4}>
+                <Col 
+                 onClick={()=>{
+                    setObj(2);
+                     props.history.push('/service')
+                }} sm={12} md={4}>
                 <Features svg={
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 20">
                     <g fillRule="nonzero">
@@ -76,12 +91,25 @@ const HomeBody = () => {
                 <img alt="" className="leader_page" src={require('./new.png')}/>
                 
                 </Col>
-                <Col sm={12} md={5}>
+                <Col  sm={12} md={5}>
                     <div className="leader_text">
                     <h1 >Earn a life time from the global pool </h1>
+                    
                     </div>
                     
-                    
+                    <div className="register_type">
+                        <h4 style={{color:"rgba(0,0,0,0.6)"}} className="text-center ">You can register as a </h4>
+                        <div className="row mx-auto">
+                            <span className="btn-left mx-auto col-md-6  col-10">
+                            <button  >A Business Leader</button>
+                            </span>
+                            <span className="mx-auto btn-right col-md-6 col-10">
+                            <button> An E-Marketer</button>
+                            </span>
+                        </div>
+                       
+
+                    </div> 
                     
                 
                 </Col>
@@ -94,7 +122,11 @@ const HomeBody = () => {
                 </Row>
                 <Row>
                
-                <Col sm={12} md={4}>
+                <Col 
+                 onClick={()=>{
+                    setObj(6);
+                     props.history.push('/service')
+                }} sm={12} md={4}>
                 <Features svg={  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 21 21">
                                                 <g fill="none" fillRule="evenodd" transform="translate(1 1)">
                                                     <circle cx="9.5" cy="9.5" r="9.5" fill="#FFF" strokeWidth="1.8"></circle>
@@ -104,7 +136,12 @@ const HomeBody = () => {
                                             </svg>} title="Free class on monetizing your  and Instagram’s page"  color="royalblue"/>
                 
                 </Col>
-                <Col sm={12} md={4}>
+                <Col 
+                 onClick={()=>{
+                    setObj(3);
+                     props.history.push('/service')
+                }}
+                sm={12} md={4}>
                 <Features svg={
                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 20">
                    <g fillRule="nonzero">
@@ -121,7 +158,11 @@ const HomeBody = () => {
                 }
                 title=" Create a business network for you"  color="purple"/>
                 </Col>
-                <Col sm={12} md={4}>
+                <Col 
+                 onClick={()=>{
+                    setObj(1);
+                     props.history.push('/service')
+                }} sm={12} md={4}>
                 <Features svg={
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 24">
                   <path stroke="none" fillRule="nonzero" d="M10.865.36l3.334 3.275c1.342 1.347-.67 3.367-2.013 2.02l-.013-.013c-.413-.42-.75-.282-.75.31V16.43a1.43 1.43 0 0 1-1.432 1.426h.017a1.427 1.427 0 0 1-1.432-1.426V5.953c0-.596-.336-.732-.75-.31l-.014.013C6.47 7.002 4.457 4.982 5.8 3.636L9.09.365A1.267 1.267 0 0 1 10.864.36zM2.929 6.5a1.428 1.428 0 0 1 2.02 2.02 7.142 7.142 0 1 0 10.1 0A1.428 1.428 0 0 1 17.07 6.5c3.905 3.905 3.905 10.236 0 14.141-3.905 3.905-10.236 3.905-14.141 0-3.905-3.905-3.905-10.236 0-14.141z">
@@ -156,4 +197,4 @@ const HomeBody = () => {
     )
 }
 
-export default HomeBody
+export default withRouter(HomeBody)

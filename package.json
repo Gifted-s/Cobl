@@ -1,0 +1,33 @@
+{
+  "name": "COBOL",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "~1.4.3",
+    "csurf": "^1.9.0",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "^5.3.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "mongodb": "*",
+    "mongoose": "^5.3.7",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "nodemailer": "^5.0.0",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "sweetalert2": "^7.33.1"
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState  } from 'react';
 import { Nav, NavItem, Row ,Container,  NavLink } from 'reactstrap';
 
-import {Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 const Signup = (props) => {
@@ -16,6 +16,7 @@ const Signup = (props) => {
   const [registerType, setRegisterType] = useState('');
   const [category, setCategory] = useState('');
   const [errors, setErr] = useState([]);
+  
   
   
   const onSubmit= (e)=>{
@@ -125,7 +126,7 @@ const Signup = (props) => {
                 <div className="navbar-brand" >
                   COBL
                 </div>
-                <h6 style={{padding:"10px"}} className="alert alert-primary">
+                <h6 style={{padding:"10px", fontWeight:'normal'}} className="alert alert-primary">
                   Please fill the form below to register
                 </h6>
                 <div className="form-group">
@@ -154,6 +155,9 @@ const Signup = (props) => {
                 </div>
                 <div className="form-group">
                     <input  type="button" onClick={validate} value="Next" className="form-control signup btn btn-primary"/>
+                </div>
+                <div>
+                  Already have an account? <Link to="/signin">Sign in</Link>
                 </div>
               </form>
            </div>

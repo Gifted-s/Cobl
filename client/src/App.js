@@ -6,7 +6,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
 import AsyncComponent from './Components/AsyncComponent';
-import UploadProduct from './Components/UploadProduct';
+
 
 const Error= function(props){
   return(
@@ -44,6 +44,7 @@ class App extends Component {
     const Products= AsyncComponent(()=>import("./Components/Products"));
     const AddProduct= AsyncComponent((()=>import("./Components/UploadProduct")))
     const Edit= AsyncComponent(()=>import('./Components/EditProfile'))
+    const Service= AsyncComponent(()=>import('./Components/Service'))
     const user= localStorage.getItem('user');
     return (
     
@@ -56,6 +57,7 @@ class App extends Component {
           <Route path="/" component={Home} exact/>
           <Route path="/signup" component={Signup}/>
           <Route path="/signin" component={Signin}/>
+          <Route path="/service" component={Service}/>
           <Route path="/upload" component={user ?AddProduct: Home }/>
           <Route path="/dashboard" component={user ?Dashboard: Home }/>
           <Route path="/edit" component={user ?Edit: Home }/>
