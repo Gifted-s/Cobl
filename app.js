@@ -49,6 +49,13 @@ const {
   registerType,
   phone
 }= req.body
+const query=  User.findOne({'email' :email} , {name:1});
+const promises= query.exec()
+promises.then((user)=>{
+if(user){
+ return res.json(false)
+}
+
 const newUser= new User();
 newUser.name=name;
 newUser.password= newUser.encryptPassword(password);
@@ -64,6 +71,8 @@ if(err){
 // Jackson¾«»ª½Ü¿ËÑ·
 res.json(user)
 })
+})
+
 });
 app.post('/signin', (req,res,next)=>{
   const {email,password}= req.body;

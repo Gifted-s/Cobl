@@ -7,7 +7,7 @@ var options = {
   poolSize:50,
   keepAlive:true
   }
-mongoose.connect("mongodb://localhost/COBOL" , options, ()=>{
+mongoose.connect("mongodb://sunkanmi:sunkanmi123@ds253388.mlab.com:53388/cobl" , options, ()=>{
   console.log("Database connection was successful")
 } );
 function toString(email){

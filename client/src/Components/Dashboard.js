@@ -1,12 +1,14 @@
-import React , {useState} from 'react'
+import React , {useState , useContext} from 'react'
 import Dashboardside from './Dashboardside'
 import {Row, Col , Card , CardBody, CardTitle, CardText} from 'reactstrap';
 import DashboardNav from './DashboardNav';
 import Subnav from './Subnav';
 import Graph from './Graph';
 import Services from './Services';
+import { DropdownContextProvider } from './DropdownContext';
 
 const  Dashboard = (props) => {
+   const {setObj}= useContext(DropdownContextProvider);
     const fetch= localStorage.getItem('user');
     const user= JSON.parse(fetch)
     const [display, setDisplay]= useState(true);
@@ -27,30 +29,56 @@ const  Dashboard = (props) => {
                    </div>
                
                <Row>
-                   <Col sm={12} md={6}>
-                       <Services background="royalblue" name="Run ads on our wesite" description="We help you run your ads"/>
+                   <Col
+                    onClick={()=>{
+                        setObj(1);
+                         props.history.push('/service')
+                    }}
+                   sm={12} md={6}>
+                       <Services background="white" name="Run ads on our wesite" description="We help you run your ads"/>
                    </Col>
-                   <Col sm={12} md={6}>
-                       <Services background="deeppink" name="Promote Business" description="We help you to promote your business to the next level"/>
+                   <Col
+                    onClick={()=>{
+                        setObj(0);
+                         props.history.push('/service')
+                    }}
+                   sm={12} md={6}>
+                       <Services background="white" name="Promote Business" description="We help you to promote your business to the next level"/>
                    </Col>
                </Row>
 
                <Row>
-                   <Col sm={12} md={6}>
-                       <Services background="springgreen" name="E-purshase services" description="By uploading your products, we help you advertise it in pur platform"/>
+                   <Col 
+                    onClick={()=>{
+                        setObj(4);
+                         props.history.push('/service')
+                    }}sm={12} md={6}>
+                       <Services background="white" name="E-purshase services" description="By uploading your products, we help you advertise it in pur platform"/>
                    </Col>
-                   <Col sm={12} md={6}>
-                       <Services background="purple" name="Business networking" description="We help you run your business globally"/>
+                   <Col 
+                    onClick={()=>{
+                        setObj(3);
+                         props.history.push('/service')
+                    }}sm={12} md={6}>
+                       <Services background="white" name="Business networking" description="We help you run your business globally"/>
                    </Col>
                </Row>
 
 
                <Row>
-                   <Col sm={12} md={6}>
-                       <Services background="blue" name="Manage social media" description="We also help you advertise your social media handles"/>
+                   <Col
+                    onClick={()=>{
+                        setObj(6);
+                         props.history.push('/service')
+                    }} sm={12} md={6}>
+                       <Services background="white" name="Manage social media" description="We also help you advertise your social media handles"/>
                    </Col>
-                   <Col sm={12} md={6}>
-                       <Services background="orange" name="Leadership mentoring" description="You can recieve montorship on  how you can become your own business owner "/>
+                   <Col 
+                    onClick={()=>{
+                        setObj(2);
+                         props.history.push('/service')
+                    }}sm={12} md={6}>
+                       <Services background="white" name="Leadership mentoring" description="You can recieve montorship on  how you can become your own business owner "/>
                    </Col>
                </Row>
                </div>
@@ -106,7 +134,7 @@ const  Dashboard = (props) => {
             </span>
             <span 
             onClick={()=>{
-                localStorage.clear();
+                
                 props.history.push('/products')
                  
              }}  className="nav_item">
@@ -140,7 +168,12 @@ const  Dashboard = (props) => {
                  </h3>
                  <Row>
                      <Col sm={12}>
-                     <Card>
+                     <Card
+                        onClick={()=>{
+                            setObj(4);
+                             props.history.push('/service')
+                        }}> 
+                     
                      <span className="list__icon">
                      <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 20 20">
                                                     <path stroke="none" fillRule="nonzero" d="M10.84 7.608A.692.692 0 0 0 10.136 7a.692.692 0 0 0-.705.61l-1.33 6.506a3.319 3.319 0 0 0-.028.709c.086 1.242 1.074 1.863 2.063 1.863.988 0 1.977-.621 2.062-1.863a3.319 3.319 0 0 0-.027-.709l-1.33-6.507zm3.966 6.106c-.409-.296-.777-.818-1.287-.575a.803.803 0 0 0-.381.414c-.176.408-.102.84-.123 1.265-.054 1.14-.884 2.17-1.94 2.57a2.658 2.658 0 0 1-.954.176c-1.47-.007-2.812-1.309-2.866-2.777-.016-.453.074-.913-.138-1.35a.762.762 0 0 0-.294-.329c-.54-.316-1.067.18-1.445.605-.348.39-.887.796-1.34.535-.156-.089-.262-.242-.357-.394a6.766 6.766 0 0 1-1.001-3.066l.613-.02a.76.76 0 0 0 .736-.762v-.003a.773.773 0 0 0-.745-.77l-.6-.022c0-2.212 1.63-3.814 1.569-3.873l.464.442a.767.767 0 0 0 1.07-.012l.002-.002a.755.755 0 0 0 .017-1.05l-.422-.45a6.66 6.66 0 0 1 3.827-1.583l.02.61a.76.76 0 0 0 .763.736h.015a.76.76 0 0 0 .758-.734l.022-.615a6.656 6.656 0 0 1 3.826 1.59l-.403.436a.769.769 0 0 0 1.091 1.083l.43-.405a6.66 6.66 0 0 1 1.584 3.827l-.559.019a.79.79 0 0 0-.06 1.577l.591.065s-.68 4.15-2.483 2.842zM0 10c0 5.523 4.477 10 10 10s10-4.477 10-10S15.523 0 10 0 0 4.477 0 10z">
@@ -149,17 +182,22 @@ const  Dashboard = (props) => {
             </span>
                      <CardTitle>
                      
-                         Build a global business
+                     Gives You a free E-Purshase Platform
                      </CardTitle>
                      <CardBody>
                          <CardText>
-                          Cobl surports you with materials that help you to grow your business
+                          Cobl surports you with a free E-purshase platform
                          </CardText>
                      </CardBody>
                  </Card>
                      </Col>
                      <Col sm={12}>
-                     <Card>
+                     <Card
+                     
+                     onClick={()=>{
+                        setObj(1);
+                         props.history.push('/service')
+                    }}>
                      <span className="list__icon">
                      <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 20 20">
                                                         <g fill="none" fillRule="evenodd" transform="translate(1 1)">
@@ -181,7 +219,11 @@ const  Dashboard = (props) => {
                      </CardBody>
                  </Card>
                      </Col>
-                     <Col sm={12}>
+                     <Col 
+                        onClick={()=>{
+                            setObj(3);
+                             props.history.push('/service')
+                        }} sm={12}> 
                      <Card>
                      <span className="list__icon">
                      <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 20 20">
@@ -207,7 +249,11 @@ const  Dashboard = (props) => {
                  </Card>
                      </Col>
                      <Col sm={12}>
-                     <Card>
+                     <Card
+                        onClick={()=>{
+                            setObj(2);
+                             props.history.push('/service')
+                        }}> 
                      <span className="list__icon">
                      <svg style={{color:'white' , padding:'6'}} className="bg-primary" xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 25 16">
                                                 <g fill="white" stroke="none" fillRule="nonzero">
@@ -233,7 +279,11 @@ const  Dashboard = (props) => {
                      </Col>
                    
 
-                     <Card>
+                     <Card
+                        onClick={()=>{
+                            setObj(6);
+                             props.history.push('/service')
+                        }}> 
                      <span className="list__icon">
                      <h1 >f</h1>
             </span>
@@ -267,7 +317,11 @@ const  Dashboard = (props) => {
           
                 <p>Services</p>
             </div>
-            <div className="list_container">
+            <div
+             onClick={()=>{
+                setObj(1);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20">
                                                     <path stroke="none" fillRule="nonzero" d="M10.84 7.608A.692.692 0 0 0 10.136 7a.692.692 0 0 0-.705.61l-1.33 6.506a3.319 3.319 0 0 0-.028.709c.086 1.242 1.074 1.863 2.063 1.863.988 0 1.977-.621 2.062-1.863a3.319 3.319 0 0 0-.027-.709l-1.33-6.507zm3.966 6.106c-.409-.296-.777-.818-1.287-.575a.803.803 0 0 0-.381.414c-.176.408-.102.84-.123 1.265-.054 1.14-.884 2.17-1.94 2.57a2.658 2.658 0 0 1-.954.176c-1.47-.007-2.812-1.309-2.866-2.777-.016-.453.074-.913-.138-1.35a.762.762 0 0 0-.294-.329c-.54-.316-1.067.18-1.445.605-.348.39-.887.796-1.34.535-.156-.089-.262-.242-.357-.394a6.766 6.766 0 0 1-1.001-3.066l.613-.02a.76.76 0 0 0 .736-.762v-.003a.773.773 0 0 0-.745-.77l-.6-.022c0-2.212 1.63-3.814 1.569-3.873l.464.442a.767.767 0 0 0 1.07-.012l.002-.002a.755.755 0 0 0 .017-1.05l-.422-.45a6.66 6.66 0 0 1 3.827-1.583l.02.61a.76.76 0 0 0 .763.736h.015a.76.76 0 0 0 .758-.734l.022-.615a6.656 6.656 0 0 1 3.826 1.59l-.403.436a.769.769 0 0 0 1.091 1.083l.43-.405a6.66 6.66 0 0 1 1.584 3.827l-.559.019a.79.79 0 0 0-.06 1.577l.591.065s-.68 4.15-2.483 2.842zM0 10c0 5.523 4.477 10 10 10s10-4.477 10-10S15.523 0 10 0 0 4.477 0 10z">
@@ -278,7 +332,11 @@ const  Dashboard = (props) => {
            
             </div>
 
-            <div className="list_container">
+            <div
+             onClick={()=>{
+                setObj(0);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 20">
                                                 <g fillRule="nonzero">
@@ -295,7 +353,11 @@ const  Dashboard = (props) => {
            
             </div>
 
-            <div className="list_container">
+            <div
+             onClick={()=>{
+                setObj(4);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 21 21">
                                                 <g fill="none" fillRule="evenodd" transform="translate(1 1)">
@@ -309,7 +371,11 @@ const  Dashboard = (props) => {
            
             </div>
 
-            <div className="list_container">
+            <div
+             onClick={()=>{
+                setObj(6);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                     <g fill="none" fillRule="evenodd" transform="translate(1 1)">
@@ -326,7 +392,11 @@ const  Dashboard = (props) => {
 
             
 
-            <div className="list_container">
+            <div 
+             onClick={()=>{
+                setObj(3);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 20 24">
                                                 <path stroke="none" fillRule="nonzero" d="M10.865.36l3.334 3.275c1.342 1.347-.67 3.367-2.013 2.02l-.013-.013c-.413-.42-.75-.282-.75.31V16.43a1.43 1.43 0 0 1-1.432 1.426h.017a1.427 1.427 0 0 1-1.432-1.426V5.953c0-.596-.336-.732-.75-.31l-.014.013C6.47 7.002 4.457 4.982 5.8 3.636L9.09.365A1.267 1.267 0 0 1 10.864.36zM2.929 6.5a1.428 1.428 0 0 1 2.02 2.02 7.142 7.142 0 1 0 10.1 0A1.428 1.428 0 0 1 17.07 6.5c3.905 3.905 3.905 10.236 0 14.141-3.905 3.905-10.236 3.905-14.141 0-3.905-3.905-3.905-10.236 0-14.141z">
@@ -337,7 +407,11 @@ const  Dashboard = (props) => {
            
             </div>
 
-            <div className="list_container">
+            <div 
+             onClick={()=>{
+                setObj(2);
+                 props.history.push('/service')
+            }} className="list_container">
             <span className="list_icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 21 21">
                                                 <g fill="none" fillRule="evenodd" transform="translate(1 1)">

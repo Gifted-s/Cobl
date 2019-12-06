@@ -4,9 +4,9 @@ const Services = ({name, description , background}) => {
     return (
         <div className="cards">
             <Card style={{backgroundColor:`${background}`}}>
-    <h5>{name}</h5>
+    <h5 style={{color:'rgba(0,0,0,0.9)'}}>{name}</h5>
     <hr></hr>
-     <p>{description}</p>
+     <p  style={{color:'rgba(0,0,0,0.7)'}}>{description}</p>
                 
 
             </Card>

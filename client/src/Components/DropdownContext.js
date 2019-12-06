@@ -35,7 +35,7 @@ const DropdownContext = (props) => {
         },
         {
             title:"Earn a Life Time from a Global Pool",
-            text:"Been part of COBl system, you will earn from the global pool profit for a lifetime, go through the registration, you will know the percentage you can earn. <br/>NB you earn for a lifetime, as a registered member."
+            text:"Been part of COBl system, you will earn from the global pool profit for a lifetime, go through the registration, you will know the percentage you can earn.NB you earn for a lifetime, as a registered member."
 
         },
         {

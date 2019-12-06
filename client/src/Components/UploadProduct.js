@@ -82,7 +82,7 @@ const UploadProduct = () => {
 
                 <div className="form-group">
                     <label className="label" htmlFor="input_fieled">Price of product</label>
-                    <input onChange={(e)=> setPrice(e.target.value)} id="input_fieled" className='form-control' placeholder="Enter the price of the product" />
+                    <input type="number" onChange={(e)=> setPrice(e.target.value)} id="input_fieled" className='form-control' placeholder="Enter the price of the product" />
           
              </div>
                 <input className="btn btn-primary" value="Add product" type="submit"/>

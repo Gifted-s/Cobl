@@ -7,6 +7,7 @@ import { DropdownContextProvider } from './DropdownContext';
 
 
 const HomeBody = (props) => {
+    
     const {setObj}=  useContext(DropdownContextProvider)
     return (
         <div className="homeBody">
@@ -61,6 +62,7 @@ const HomeBody = (props) => {
                 <Col 
                  onClick={()=>{
                     setObj(2);
+                    
                      props.history.push('/service')
                 }} sm={12} md={4}>
                 <Features svg={
@@ -87,7 +89,7 @@ const HomeBody = (props) => {
 
               
                 <Col sm={12} md={7}>
-               
+                  
                 <img alt="" className="leader_page" src={require('./new.png')}/>
                 
                 </Col>
@@ -101,10 +103,15 @@ const HomeBody = (props) => {
                         <h4 style={{color:"rgba(0,0,0,0.6)"}} className="text-center ">You can register as a </h4>
                         <div className="row mx-auto">
                             <span className="btn-left mx-auto col-md-6  col-10">
-                            <button  >A Business Leader</button>
+                            <button onClick={()=>{
+                                props.history.push('/signup')
+                            }}  >A Business Leader</button>
                             </span>
                             <span className="mx-auto btn-right col-md-6 col-10">
-                            <button> An E-Marketer</button>
+                            <button 
+                             onClick={()=>{
+                                props.history.push('/signup')
+                            }}> An E-Marketer</button>
                             </span>
                         </div>
                        

@@ -39,19 +39,20 @@ const Signup = (props) => {
         return res.json()
      })
      .then((resJson)=>{
-
+      console.log(resJson)
+      if(resJson===false){
+       
+        return  setErr([...errors,"Email  already taken"] );
+        
+      }
       localStorage.setItem('user' , JSON.stringify(resJson));
       return (
-         
         props.history.push('/dashboard')
-       
-
-        
       )
      })
      .catch(err=>{
-       console.log(err+ "    ERROR");
-       setErr([...err,"There is a problem with the server try again"] )
+       
+       setErr([...errors,"There is a problem with the server try again"] )
      })
       // const req= await axios('http://localhost:3001/register',formData, {
       //   method:"post",
@@ -81,6 +82,7 @@ const Signup = (props) => {
          
          <div className="row">
              <div className="col-md-6 col-sm-12  offset-3">
+               
              <Nav tabs>
             <NavItem>
               <NavLink href="#" onClick={()=>setStep(1)}  className={step===1? 'active bg-primary':'inactive'} >Step 1</NavLink>
@@ -246,7 +248,25 @@ const Signup = (props) => {
                          Please enter all  fields
                      </div> */}
               <form onSubmit={onSubmit}  className="form">
-                  
+              {
+                         errors? 
+                        
+                         errors.map((error)=>{
+                             return(
+                                <div key={error} className="alert alert-danger alert-dismissible">
+                                  <div className="my-3">
+                                  <h6>While trying to register you some an error occured due to the following</h6>
+                                  </div>
+                                  
+                                {error}
+                                </div>
+                             )
+                           
+                            
+                         })
+                         :null
+                        
+                     }
                 <h5>Please review your credentials before the final submission</h5>
                 <hr/>
                 <div className="review_item">

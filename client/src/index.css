@@ -180,6 +180,9 @@ display: none;
   display: inline-flex;
 
 }
+.list_container{
+  cursor: pointer;
+}
  span.dot{
   background: rgb(4, 88, 243);
   border-style: solid;
@@ -360,6 +363,34 @@ margin-top: 20px;
   animation: rightLeft 0.3s linear;
   margin-left:  290px;
 }
+.about-body{
+  background: white;
+   padding: 40px;
+
+}
+.about{
+  margin-top: 20px;
+
+}
+.about h4{
+  color:rgba(0, 0, 0, 0.6);
+  margin:13px 0;
+}
+.about h2{
+  color:rgba(0, 0, 0, 0.7)
+}
+.about .service__{
+  margin: 30px 0;
+}
+.about .service__ span.badge{
+  color:white;
+  font-size: 12px;
+  padding: 9px 12px;
+  margin-right:30px;
+}
+.about .service__ span{
+  font-size: 15px;
+}
 
 @keyframes rightLeft {
   from{
@@ -416,7 +447,10 @@ input[type="number"], select{
   height: 42px;
   font-size: 15px;
   margin-top: 5px;
- border:1px solid rgba(0,0,0,0.2)
+ border-bottom:1px solid rgba(0,0,0,0.2);
+ border-left:1px solid transparent;
+ border-right:1px solid transparent;
+ border-top:1px solid transparent;
 }
 form{
   background: white;
@@ -456,7 +490,7 @@ form{
    
 }
 .service_ .left h1{
-  font-size: 60px;
+  font-size: 40px;
   color:rgb(78, 47, 163);
   line-height: 1em;
 }
@@ -652,23 +686,26 @@ margin-left:660px;
   overflow-y: scroll;
  
 }
+.cards{
+  padding-bottom: 70px;
+}
 .cards .card{
   padding: 20px;
   height: 200px;
   color:white;
   border-radius: 0;
-  box-shadow: 0 12px 10px 0px rgba(0,0,0,0.07);
+  box-shadow: 0 7px 8px 0px rgba(0,0,0,0.07);
   border: none;
   transition: all 0.1s linear;
   border-color: transparent;
 } 
 .cards .card:hover{
   margin-top: -4px;
-  box-shadow: 0 12px 10px 0px rgba(0,0,0,0.3);
+  box-shadow: 0 9px 10px 0px rgba(0,0,0,0.09);
 }
 .product{
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 .price{
   color:white;
@@ -714,6 +751,14 @@ margin-left:660px;
   }
 }
 @media screen and (max-width:767px){
+  .about .row_{
+    background: white;
+     
+    width:110%;
+    margin-top:-20px;
+    padding-top: 30px;
+     
+  }
   .display{
     display:block
   }
@@ -790,6 +835,7 @@ margin-top: 20px;
    font-weight: 600;
 
  }
+
  .blocks .card-text{
    text-align: center;
  }

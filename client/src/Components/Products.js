@@ -36,14 +36,12 @@ const Products = () => {
                    
                return(
        
-             <div className="col-10 col-md-4 mx-auto my-4">
+            <div key={product.name} className="col-10 col-md-4 mx-auto my-4">
             <div className="card product">
-            <div className="card-title">
-            <h5>{product.name}</h5>
-            
-            </div>
             
             <div className="card-body">
+            <h5>{product.name}</h5>
+            <hr/>
             {product.description}
 
             </div>

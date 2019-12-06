@@ -6,7 +6,19 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
 import AsyncComponent from './Components/AsyncComponent';
-
+import ErrorBoundary from './Components/ErrorHandler';
+const DropdownContext= AsyncComponent(()=>import("./Components/DropdownContext"))
+const Home= AsyncComponent(()=>import("./Components/Home"));
+const Signin= AsyncComponent(()=>import("./Components/Signin"))
+const Signup= AsyncComponent(()=>import("./Components/Signup"));
+const Dashboard= AsyncComponent(()=>import("./Components/Dashboard"));
+const Products= AsyncComponent(()=>import("./Components/Products"));
+const AddProduct= AsyncComponent((()=>import("./Components/UploadProduct")))
+const Edit= AsyncComponent(()=>import('./Components/EditProfile'))
+const Service= AsyncComponent(()=>import('./Components/Service'))
+const About= AsyncComponent(()=>import('./Components/About'))
+const New= AsyncComponent(()=>import('./Components/New'))
+const user= localStorage.getItem('user');
 
 const Error= function(props){
   return(
@@ -36,27 +48,20 @@ const Error= function(props){
 }
 class App extends Component {
   render(){
-    const DropdownContext= AsyncComponent(()=>import("./Components/DropdownContext"))
-    const Home= AsyncComponent(()=>import("./Components/Home"));
-    const Signin= AsyncComponent(()=>import("./Components/Signin"))
-    const Signup= AsyncComponent(()=>import("./Components/Signup"));
-    const Dashboard= AsyncComponent(()=>import("./Components/Dashboard"));
-    const Products= AsyncComponent(()=>import("./Components/Products"));
-    const AddProduct= AsyncComponent((()=>import("./Components/UploadProduct")))
-    const Edit= AsyncComponent(()=>import('./Components/EditProfile'))
-    const Service= AsyncComponent(()=>import('./Components/Service'))
-    const user= localStorage.getItem('user');
+
     return (
     
      <div className="App">
-     
+     <ErrorBoundary>
       <DropdownContext>
      
         <BrowserRouter>
         <Switch>
           <Route path="/" component={Home} exact/>
           <Route path="/signup" component={Signup}/>
+          <Route path="/new" component={New}/>
           <Route path="/signin" component={Signin}/>
+          <Route path="/about" component={About}/>
           <Route path="/service" component={Service}/>
           <Route path="/upload" component={user ?AddProduct: Home }/>
           <Route path="/dashboard" component={user ?Dashboard: Home }/>
@@ -67,7 +72,7 @@ class App extends Component {
         </Switch>
         </BrowserRouter>
       </DropdownContext>
-    
+    </ErrorBoundary>
      </div>
     
      

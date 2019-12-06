@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import { DropdownContextProvider } from './DropdownContext';
 import {Spinner} from 'reactstrap'
 const Service = (props) => {
+   
     const {service_obj}= useContext(DropdownContextProvider)
     return ( 
         <React.Fragment>
@@ -62,7 +63,7 @@ const Service = (props) => {
                     <div className="right mx-auto col-12 col-md-6 my-1">
                     <h3 className="display text-center my-3">
                      
-                    Do you intend reaching a lot of persons about your organization, business, skill, or have a business awareness you will want to pass across to people, COBl makes this advantage for you free.
+                    Promote and Expand Your Business to the Public.
                     </h3>
                     Do you intend reaching a lot of persons about your organization, business, skill, or have a business awareness you will want to pass across to people, COBl makes this advantage for you free.
                       <div className="register_type cent">
@@ -85,6 +86,7 @@ const Service = (props) => {
                        </div> 
                          <span
                           onClick={()=>{
+                              console.log(props.history)
                               props.history.push('/dashboard')
                           }} className="back">Go back</span>
                      
